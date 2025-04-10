@@ -1,0 +1,128 @@
+/* Общий стиль страницы */
+body {
+  background: #1b1b2f; /* Темный фон (космический) */
+  color: white; /* Белый текст для контраста */
+  font-family: "Arial", sans-serif; /* Современный шрифт */
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden; /* Чтобы звезды не выходили за пределы */
+}
+
+h1 {
+  font-size: 2rem;
+  margin-top: 50px;
+  color: #f3a847; /* Космический золотой для заголовка */
+}
+
+/* Звездный фон с анимацией */
+@keyframes starAnimation {
+  0% {
+    transform: translateX(0) translateY(0);
+  }
+  100% {
+    transform: translateX(-1000px) translateY(-1000px);
+  }
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("https://www.w3schools.com/w3images/stars.jpg") repeat; /* Звезды на фоне */
+  background-size: cover;
+  z-index: -1;
+  animation: starAnimation 5000s linear infinite; /* Анимация движения звезд */
+  opacity: 0.5; /* Прозрачность для фона */
+}
+
+/* Стили для выпадающего списка */
+select,
+input {
+  font-size: 1rem;
+  padding: 10px;
+  margin: 20px;
+  border: none;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.2); /* Прозрачный фон */
+  color: #f3a847;
+  width: 200px;
+  text-align: center;
+}
+
+select:focus,
+input:focus {
+  outline: none; /* Убираем обводку при фокусе */
+  background-color: #1b1b2f;
+  border: navy;
+}
+
+/* Кнопка */
+button {
+  font-size: 1.2rem;
+  padding: 15px 30px;
+  background-color: #f3a847; /* Золотой цвет для кнопки */
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  color: white;
+  transition: 0.3s ease;
+}
+
+button:hover {
+  background-color: #f3e4b4; /* Светлый золотой цвет при наведении */
+}
+
+/* Стиль для загрузки */
+#loading {
+  font-size: 1.5rem;
+  color: #ffffff;
+  margin-top: 20px;
+}
+
+/* Стиль для результата */
+#result {
+  font-size: 1.3rem;
+  color: #f3a847; /* Золотой цвет для текста результата */
+  margin-top: 30px;
+}
+
+#result ul {
+  list-style: none;
+  padding: 0;
+}
+
+#result li {
+  background-color: rgba(255, 255, 255, 0.2);
+  margin: 5px;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+/* Стиль для ошибки */
+#error {
+  color: red;
+  font-size: 1.2rem;
+  margin-top: 20px;
+}
+
+/* Анимация для загрузки */
+@keyframes loadingAnimation {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+#loading {
+  animation: loadingAnimation 1s infinite;
+}
